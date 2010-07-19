@@ -23,7 +23,7 @@ module Admin::BaseHelper
       resource_name = 'dashboard'
     end
     
-    if args.include?(resource_name.to_s.pluralize.to_sym)
+    if args.include?(resource_name.to_s.pluralize.to_sym) || args.include?(resource_name.to_s.to_sym)
       css_class = 'on'
     end
     content_tag('span', link, :class => css_class)

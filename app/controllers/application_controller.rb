@@ -2,11 +2,21 @@ class ApplicationController < ActionController::Base
   
   helper :all
   
+  before_filter :set_configuration, :set_title
+  
   protect_from_forgery 
 
   filter_parameter_logging :password, :password_confirmation
   
+  def set_title
+    @page_title = "Podcasts"
+  end
+  
   protected
+  
+    def set_configuration
+      @config = Configuration.first
+    end
   
     def logged_in?
       !!current_user
@@ -42,5 +52,7 @@ class ApplicationController < ActionController::Base
       redirect_to login_path
       return false
     end
+    
+
     
 end

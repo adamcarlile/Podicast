@@ -1,7 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   # The priority is based upon order of creation: first created -> highest priority.
 
-  #map.root :controller => 'pages', :action => 'index'
+  map.root :controller => 'podcasts', :action => 'index'
   
   map.resources :user_sessions
   map.resources :podcasts
@@ -14,8 +14,7 @@ ActionController::Routing::Routes.draw do |map|
   map.namespace(:admin) do |admin|
     admin.resources :users
     admin.resources :podcasts
+    admin.resource :configuration
   end
-
-  map.connect ':controller/:action/:id'
-  map.connect ':controller/:action/:id.:format'
+  
 end

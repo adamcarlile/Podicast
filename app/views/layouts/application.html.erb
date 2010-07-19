@@ -1,4 +1,11 @@
 <%= render 'layouts/shared/header' %>
+<div class="wrapper">
+<div id="header">
+	<h1><%= @config.name %></h1>
+</div>
+<div id="body">
 <%= render_flash %>
 <%= yield %>
+</div>
 <%= render 'layouts/shared/footer' %>
+</div>

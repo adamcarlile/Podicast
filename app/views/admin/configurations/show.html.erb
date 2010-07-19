@@ -1,0 +1,15 @@
+<% content_for :controls do %>
+	<ul>
+		<%= control_link('Show Configuration', admin_configuration_path) %>
+		<%= control_link('Edit Configuration', edit_admin_configuration_path) %>
+	</ul>
+<% end %>
+
+<dl>
+	<% (Configuration.column_names - ['id', 'state']).each do |field| %>
+		<% if @object.send(field) %>
+		<dt><%= field.humanize %></dt>
+		<dd><%= @object.send(field)%></dd>
+		<% end %>
+	<% end %>
+</dl>

@@ -9,7 +9,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100714214229) do
+ActiveRecord::Schema.define(:version => 20100719203125) do
+
+  create_table "configurations", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.text     "summary"
+    t.boolean  "explicit"
+    t.string   "category"
+    t.string   "sub_category"
+    t.string   "author"
+    t.string   "email"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "podcasts", :force => true do |t|
     t.string   "title"
@@ -17,14 +34,28 @@ ActiveRecord::Schema.define(:version => 20100714214229) do
     t.boolean  "block"
     t.boolean  "explicit"
     t.text     "summary"
-    t.float    "duration"
+    t.string   "duration"
     t.string   "audio_file_name"
     t.string   "audio_content_type"
     t.integer  "audio_file_size"
     t.datetime "audio_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "keywords"
   end
+
+  create_table "preferences", :force => true do |t|
+    t.string   "name",       :null => false
+    t.integer  "owner_id",   :null => false
+    t.string   "owner_type", :null => false
+    t.integer  "group_id"
+    t.string   "group_type"
+    t.string   "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "preferences", ["owner_id", "owner_type", "name", "group_id", "group_type"], :name => "index_preferences_on_owner_and_name_and_preference", :unique => true
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false

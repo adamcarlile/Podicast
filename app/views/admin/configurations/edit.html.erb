@@ -1,0 +1,10 @@
+<% content_for :controls do %>
+	<ul>
+		<%= control_link('Show Configuration', admin_configuration_path) %>
+		<%= control_link('Edit Configuration', edit_admin_configuration_path) %>
+	</ul>
+<% end %>
+
+<% semantic_form_for @object, :url => admin_configuration_path, :html => {:multipart => true} do |f| %>
+  <%= render :partial => 'form', :locals => {:f => f}%>
+<% end %>

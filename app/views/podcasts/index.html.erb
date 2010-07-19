@@ -1,0 +1,17 @@
+<div class="support">
+	<%= image_tag @config.image.url(:medium) %>
+	<%= link_to "Podcast RSS Feed", podcasts_path(:format => 'rss') %>
+</div>
+<div class="content">
+	<ul>
+		<% @podcasts.each do |podcast| %>
+		<li>
+			<a href="<%= podcast.audio.url %>">
+				<span class="title"><%= truncate(podcast.title, :length => 70) %></span>
+				<span class="duration"><%= podcast.duration %> | <%= podcast.created_at.strftime("%a, %d %b %Y")%></span>
+			</a>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<%= will_paginate @podcasts %>
