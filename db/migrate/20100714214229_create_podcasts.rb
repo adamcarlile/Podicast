@@ -3,7 +3,10 @@ class CreatePodcasts < ActiveRecord::Migration
     create_table :podcasts do |t|
       t.column :title, :string
       t.column :description, :text
-      
+      t.column :block, :boolean
+      t.column :explicit, :boolean
+      t.column :summary, :text
+      t.column :duration, :string
       t.column :audio_file_name,    :string
       t.column :audio_content_type, :string
       t.column :audio_file_size,    :integer

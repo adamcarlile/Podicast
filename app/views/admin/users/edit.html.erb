@@ -1,10 +1,10 @@
 <% content_for :controls do %>
 	<ul>
-		<%= control_link(t('admin.views.users.index'), admin_users_path) %>
-		<%= control_link(t('admin.views.users.new'), new_admin_user_path) %>
+		<%= control_link('Users', admin_users_path) %>
+		<%= control_link('New User', new_admin_user_path) %>
 	</ul>
 <% end %>
 
-<% semantic_form_for @user, :url => admin_user_path(params[:locale], @user) do |f| %>
+<% semantic_form_for @user, :url => admin_user_path(@user) do |f| %>
   <%= render :partial => 'form', :locals => {:f => f}%>
 <% end %>

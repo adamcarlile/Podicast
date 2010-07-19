@@ -1,0 +1,10 @@
+<% content_for :controls do %>
+	<ul>
+		<%= control_link('Podcasts', admin_podcasts_path) %>
+		<%= control_link('New Podcast', new_admin_podcast_path) %>
+	</ul>
+<% end %>
+
+<% semantic_form_for @object, :url => admin_podcasts_path, :html => {:multipart => true} do |f| %>
+  <%= render :partial => 'form', :locals => {:f => f}%>
+<% end %>
