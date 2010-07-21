@@ -8,5 +8,13 @@ class Configuration < ActiveRecord::Base
       :medium => "300x300#", 
       :thumb => "100x100#"
       }
+      
+  def explicit?
+    if explicit
+      "Yes"
+    else
+      "No"
+    end
+  end
   
 end
