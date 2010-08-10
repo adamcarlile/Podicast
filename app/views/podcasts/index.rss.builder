@@ -26,7 +26,7 @@ xml.tag!("rss", "version".to_sym => "2.0", "xmlns:itunes".to_sym => "http://www.
           xml.link(podcast_url(@podcast))
           xml.enclosure(:url => "http://podcast.alexgoy.com#{@podcast.audio.url}", 
             :length => @podcast.audio_file_size, :type => @podcast.audio_content_type)
-          xml.guid(@podcast.id + @podcast.audio.url)
+          xml.guid("#{@podcast.id}#{@podcast.audio.url}")
           xml.tag!("itunes:author", "#{@config.email} (#{@config.author})")
           xml.tag!("itunes:subtitle", @podcast.description)
           xml.tag!("itunes:summary", @podcast.summary)
