@@ -1,6 +1,6 @@
 class Podcast < ActiveRecord::Base
     
-  default_scope :order => :created_at
+  default_scope :order => 'created_at DESC'
     
   has_attached_file :audio, 
     :path => ":rails_root/public/upload/:rails_env/podcast/:id/:filename",
